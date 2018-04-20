@@ -1,0 +1,19 @@
+body {
+    margin-top: 70px;
+}
+
+.deletebutton {
+    color: #a02909;
+}
+
+tr.even {
+    background-color: rgba(125,125,125,0.5) !important;
+}
+
+tr.odd {
+    background-color: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: inherit;
+}

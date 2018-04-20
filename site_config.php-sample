@@ -1,0 +1,19 @@
+;<?exit()?> // Rename this file to site_config.php
+[configdata]
+dbhost = localhost
+dbuser = php-lwaf
+dbpass = "CHANGEME - seriously you need to change this!"
+dbname = php-lwaf
+site_url = http://localhost
+
+mail_server = smtp.gmail.com
+mail_port = 587
+smtp_auth = 1
+mail_smtp_secure = tls
+mail_user = your-email@gmail.com
+mail_pass = your-email-password
+email_from = your-email@gmail.com
+email_from_name = Your Name
+; Setting email_redirect to true will redirect all outgoing emails to the email_redirect_address
+email_redirect = true
+email_redirect_address = a-different-email@gmail.com

@@ -1,0 +1,2 @@
+Don't edit the files in this directory tree directly. Copy them to the same path in the /usr directory and make your
+modifications there. That way your changes won't be overwritten with framework updates.
