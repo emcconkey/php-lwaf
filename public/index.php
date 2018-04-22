@@ -22,6 +22,6 @@ $GLOBALS['database'] = new database(
 user::startup();
 
 $router = new router();
-$router->add_rewrite("/", "/login");
+$router->add_rewrite("/", "/login", false);
 
 $router->route();

@@ -28,51 +28,26 @@ class router {
      *
      */
     function route() {
-        // Check redirects
-        foreach($this->_rewrites as $old => $new) {
-            if ($_SERVER['REQUEST_URI'] == $old) {
-                $_SERVER['REQUEST_URI'] = $new;
-            }
-        }
 
-        $request = $_SERVER['REQUEST_URI'];
+        $request = $this->calculate_route();
 
-        // Happens sometimes when people copy/edit/paste links, so clear out duplicate slashes
-        $request = str_replace("//", "/", $request);
-        $params = explode("?", $request);
-        $params = explode("/", $params[0]);
-        // Get rid of the first empty element
-        unset($params[0]);
-        $class = array_shift($params);
         $method = strtolower($_SERVER['REQUEST_METHOD']);
 
-        $found = false;
-        if(user::current()->is_logged_in()) {
-            foreach($this->_private_page_dirs as $pdir) {
-                if(!$found && file_exists("$pdir/$class/index.php")) {
-                    $GLOBALS["page_dir"] = "$pdir/$class/";
-                    require_once("$pdir/$class/index.php");
-                    $found = true;
-                }
-            }
-        }
+        $valid_route = $this->valid_route($request);
 
-        if(!$found) {
-            foreach ($this->_public_page_dirs as $pdir) {
-                if (!$found && file_exists("$pdir/$class/index.php")) {
-                    $GLOBALS["page_dir"] = "$pdir/$class/";
-                    require_once("$pdir/$class/index.php");
-                    $found = true;
-                }
-            }
-        }
-
-        $this->_request = $request;
-
-        if(!$found) {
+        if(!$valid_route) {
             header("Location: /errorpage/404" . $request);
             return;
         }
+
+        $params = $this->get_params($request);
+
+        $class = $this->route_class($request);
+
+        $this->run_route($method, $class, $params);
+    }
+
+    function run_route($method, $class, $params) {
 
         $vc = new $class;
 
@@ -111,14 +86,120 @@ class router {
     }
 
     /**
+     * Calculates and returns the route for the current request
+     *
+     * @return string
+     */
+    function calculate_route() {
+
+        // Happens sometimes when people copy/edit/paste links, so clear out duplicate slashes
+        $request = str_replace("//", "/", $_SERVER['REQUEST_URI']);
+
+        // Check redirects
+        foreach($this->_rewrites as $old => $new) {
+            if(strpos($old, "!") !== false) {
+                $old = str_replace("!", "", $old);
+                // Absolute replace routes
+                if ($request == $old) {
+                    $request = $new;
+                }
+            } else {
+                // Partial replace routes
+                if (substr($request, 0, strlen($old)) == $old) {
+                    $request = $new . substr($request, strlen($old));
+                }
+            }
+        }
+
+        // Store this so child classes can use it
+        $this->_request = $request;
+
+        return $request;
+    }
+
+    /**
+     * Returns the parameters of the current request
+     *
+     * @param $request
+     * @return array
+     */
+    function get_params($request) {
+
+        $params = explode("?", $request);
+        $params = explode("/", $params[0]);
+
+        // Get rid of the first two elements
+        array_shift($params);
+        array_shift($params);
+
+        return $params;
+    }
+
+    /**
+     * Returns the class that we need to call for this route
+     *
+     * @param $request
+     * @return mixed
+     */
+    function route_class($request) {
+        $params = explode("?", $request);
+        $params = explode("/", $params[0]);
+
+        // Get rid of the first empty element
+        array_shift($params);
+        $class = array_shift($params);
+
+        return $class;
+    }
+
+    /**
+     * Checks to see if the specified route is valid for the current user
+     *
+     * @param $route
+     * @return bool
+     */
+    function valid_route($request) {
+
+
+        $class = $this->route_class($request);
+
+        $valid = false;
+
+        if(user::current()->is_logged_in()) {
+            foreach($this->_private_page_dirs as $pdir) {
+                if(!$valid && file_exists("$pdir/$class/index.php")) {
+                    $GLOBALS["page_dir"] = "$pdir/$class/";
+                    require_once("$pdir/$class/index.php");
+                    $valid = true;
+                }
+            }
+        }
+
+        if(!$valid) {
+            foreach ($this->_public_page_dirs as $pdir) {
+                if (!$valid && file_exists("$pdir/$class/index.php")) {
+                    $GLOBALS["page_dir"] = "$pdir/$class/";
+                    require_once("$pdir/$class/index.php");
+                    $valid = true;
+                }
+            }
+        }
+
+        return $valid;
+
+    }
+
+    /**
      * Adds a rewrite rule
      *
      * Will redirect users from $old_url to $new_url
      *
      * @param $old_url
      * @param $new_url
+     * @param $partial
      */
-    function add_rewrite($old_url, $new_url) {
+    function add_rewrite($old_url, $new_url, $partial = true) {
+        if(!$partial) $old_url = $old_url . "!";
         $this->_rewrites[$old_url] = $new_url;
     }
 
