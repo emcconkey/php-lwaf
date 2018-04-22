@@ -88,11 +88,13 @@ class router {
 
         $vc->pre_route($params);
 
-        // We only handle GET and POST currently
+        // We only handle GET, POST, and PUT currently
         if($method == "get") {
             $vc->get_page($params);
         } elseif($method == "post") {
             $vc->post_page($params);
+        } elseif($method == "put") {
+            $vc->put_page($params);
         } else {
             header("Location: /");
         }

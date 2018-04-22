@@ -168,6 +168,15 @@ class page {
     }
 
     /**
+     * Stub of the function that is called when an HTTP PUT is sent to this page
+     *
+     * @param $args
+     */
+    function put_page($args) {
+        echo "Page loaded: " . get_class($this) . ", Method: PUT";
+        echo "No put_page(\$args) {} function defined for class " . get_class($this);
+    }
+    /**
      * Stub of the function that is called by the router to see if a user can view this page
      *
      * Override this function in the page to restrict who gets access to this page
