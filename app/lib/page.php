@@ -15,12 +15,14 @@ class page {
     /**
      * Stub of the function that is called prior to routing to this page
      *
-     * The router will pass the page arguments to the page
+     * The router will pass the page arguments to the page. If this function returns false, the page will not
+     * be rendered (get, post, put, and post route methods will not be called.)
      *
      * @param $args
+     * @return bool
      */
     function pre_route($args) {
-
+        return true;
     }
 
     /**

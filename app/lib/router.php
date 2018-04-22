@@ -86,7 +86,10 @@ class router {
             return;
         }
 
-        $vc->pre_route($params);
+        // If pre_route() returns false, don't continue rendering the page
+        if(!$vc->pre_route($params)) {
+            return;
+        }
 
         // We only handle GET, POST, and PUT currently
         if($method == "get") {
