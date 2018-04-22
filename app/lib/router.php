@@ -91,13 +91,15 @@ class router {
             return;
         }
 
-        // We only handle GET, POST, and PUT currently
+        // We handle GET, POST, PUT, and PATCH
         if($method == "get") {
             $vc->get_page($params);
         } elseif($method == "post") {
             $vc->post_page($params);
         } elseif($method == "put") {
             $vc->put_page($params);
+        } elseif($method == "patch") {
+            $vc->patch_page($params);
         } else {
             header("Location: /");
         }
