@@ -17,7 +17,9 @@ _Currently this is a work in progress, this message will change when I believe i
 
 6. Copy site_config.php-sample to site_config.php and edit the settings accordingly.
 
-7. Log in at http://url/login with the username admin@changeme.com and a password of 'password' (unless you changed it in sample_users.sql before importing into the database)
+7. Run composer install
+
+8. Log in at http://url/login with the username admin@changeme.com and a password of 'password' (unless you changed it in sample_users.sql before importing into the database)
 
 ## Extending
 
