@@ -21,7 +21,7 @@ CREATE TABLE `event_trigger` (
   `description` varchar(255) NOT NULL,
   `code` text NOT NULL,
   `status` varchar(255) NOT NULL,
-  `action` varchar(255) NOT NULL
+  `action` varchar(255) NOT NULL,
   PRIMARY KEY (`event_trigger_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
