@@ -153,7 +153,8 @@ class page {
      * @param $args
      */
     function get_page($args) {
-        echo "Page loaded: " . get_class($this) . ", Method: GET";
+        echo "Page loaded: " . get_class($this) . ", Method: GET<br>";
+        echo "No get_page(\$args) {} function defined for class " . get_class($this);
     }
 
     /**
@@ -163,6 +164,7 @@ class page {
      */
     function post_page($args) {
         echo "Page loaded: " . get_class($this) . ", Method: POST";
+        echo "No post_page(\$args) {} function defined for class " . get_class($this);
     }
 
     /**
