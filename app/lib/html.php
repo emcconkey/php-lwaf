@@ -343,6 +343,8 @@ class html
      * @param string $dropdown_parent
      */
     static function select($name, $title, $values=[], $default="", $dropdown_parent=false) {
+        // This is a single select, so multi-values won't work here - only take the first
+        if(is_array($default)) $default = $default[0];
         ?>
         <div class="form-group">
             <label for="<?=$name?>" class="control-label"><?=$title?></label>
@@ -383,13 +385,15 @@ class html
      * @param string $dropdown_parent
      */
     static function multi_select($name, $title, $values=[], $default="", $dropdown_parent=false) {
+        // This is a multi select, so we need multi-values here
+        if(!is_array($default)) $default = [ $default ];
         ?>
         <div class="form-group">
             <label for="<?=$name?>" class="control-label"><?=$title?></label>
             <select class="form-control" id="<?=$name?>" name="<?=$name?>[]" title="<?=$title?>" multiple="multiple" data-width="100%">
                 <?
                 foreach($values as $k => $v) {
-                    ?><option value="<?=$k?>" <?=($k == $default ? "selected" : "")?>><?=$v?></option><?
+                    ?><option value="<?=$k?>" <?=(in_array($k, $default) ? "selected" : "")?>><?=$v?></option><?
                 }
                 ?>
             </select>
