@@ -341,13 +341,16 @@ class html
      * @param array $values
      * @param string $default
      * @param string $dropdown_parent
+     * @param bool $bare
      */
-    static function select($name, $title, $values=[], $default="", $dropdown_parent=false) {
+    static function select($name, $title, $values=[], $default="", $dropdown_parent=false, $bare=false) {
         // This is a single select, so multi-values won't work here - only take the first
         if(is_array($default)) $default = $default[0];
-        ?>
+
+        if(!$bare) { ?>
         <div class="form-group">
             <label for="<?=$name?>" class="control-label"><?=$title?></label>
+            <? } ?>
             <select class="form-control" id="<?=$name?>" name="<?=$name?>" title="<?=$title?>" data-width="100%">
                 <option></option>
                 <?
@@ -356,7 +359,9 @@ class html
                     }
                 ?>
             </select>
+            <?if(!$bare) { ?>
         </div>
+        <? } ?>
         <script>
             setTimeout(function() {
                 <? if($dropdown_parent) { ?>
