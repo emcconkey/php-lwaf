@@ -97,25 +97,26 @@ class page {
     }
 
     /**
-     * Adds a javascript file to the header of the page
-     *
+     * Adds a javascript file into the current page template
+     * TODO: make this create a cacheable, minified version and serve that up instead
      * @param $file
      */
-    function add_js($file) {
-        $tmp = $this->get("extra_head");
-        $tmp .= '<script src="/' . $file . '"></script>' . "\n";
-        $this->set("extra_head", $tmp);
+    function render_js($file) {
+        echo "<script>";
+        $this->render($file);
+        echo "</script>";
     }
 
     /**
-     * Adds a css file to the header of the page
+     * Adds a css file into the current page template
+     * TODO: make this create a cacheable, minified version and serve that up instead
      *
      * @param $file
      */
-    function add_css($file) {
-        $tmp = $this->get("extra_head");
-        $tmp .= '<link rel="stylesheet" href="/' . $file . '">' . "\n";
-        $this->set("extra_head", $tmp);
+    function render_css($file) {
+        echo "<style>";
+        $this->render($file);
+        echo "</style>";
     }
 
     /**
