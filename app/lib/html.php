@@ -500,15 +500,16 @@ class html
     /**
      * Creats an HTML textarea element
      *
-     * @param $name
-     * @param $title
+     * @param string $name
+     * @param string $title
      * @param string $value
+     * @param string $class
      */
-    static function text($name, $title, $value="") {
+    static function text($name, $title, $value="", $class="") {
         ?>
             <div class="form-group">
                 <label for="<?=$name?>" class="control-label"><?=$title?></label>
-                <textarea name="<?=$name?>" id="<?=$name?>" class="form-control"><?=$value?></textarea>
+                <textarea name="<?=$name?>" id="<?=$name?>" class="form-control <?=$class?>"><?=$value?></textarea>
             </div>
         <?
     }
