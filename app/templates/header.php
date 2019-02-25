@@ -34,8 +34,8 @@
     <script src="/static/html/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="/static/html/sweetalert2.min.css">
 
-    <script src="/static/html/featherlight/release/featherlight.min.js"></script>
-    <link rel="stylesheet" href="/static/html/featherlight/release/featherlight.min.css">
+    <script src="/static/html/featherlight/featherlight.min.js"></script>
+    <link rel="stylesheet" href="/static/html/featherlight/featherlight.min.css">
 
     <link rel="stylesheet" href="/static/html/pickadate/lib/themes/default.css">
     <link rel="stylesheet" href="/static/html/pickadate/lib/themes/default.date.css">
