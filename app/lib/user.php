@@ -177,7 +177,7 @@ class user extends db_ob {
     function get_theme_css() {
         $theme = $this->get('theme');
 
-        if(!$theme) $theme = "static/themes/default.css";
+        if(!$theme) $theme = "static/html/themes/default.css";
         return "<link href=\"/$theme\" rel=\"stylesheet\">";
     }
 

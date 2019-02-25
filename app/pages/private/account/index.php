@@ -4,7 +4,7 @@ class account extends page {
         $this->set("page_title", "My Account");
         $this->set("themes", $this->get_themes());
         $theme = user::current()->get('theme');
-        if(!$theme) $theme = "static/themes/default.css";
+        if(!$theme) $theme = "static/html/themes/default.css";
         $this->set("theme", $theme);
         $this->render("header");
         $this->render();
@@ -28,10 +28,10 @@ class account extends page {
 
     function get_themes() {
         $themes = [];
-        if ($handle = opendir('static/themes')) {
+        if ($handle = opendir('static/html/themes')) {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    $themes["static/themes/$entry"] = str_replace(".css", "", ucfirst($entry));
+                    $themes["static/html/themes/$entry"] = str_replace(".css", "", ucfirst($entry));
                 }
             }
             closedir($handle);
