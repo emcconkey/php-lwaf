@@ -28,7 +28,7 @@
                     </tbody>
                 </table>
                 <span data-element-id="new" data-edit-url="/general_settings/edit"><span>
-                    <btn class="edit btn">Add New Value</btn>
+                    <btn class="edit btn btn-info">Add New Value</btn>
                     </span></span>
             </div>
         </div>
