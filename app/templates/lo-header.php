@@ -11,13 +11,13 @@
     <title><?=$this->get("page_title")?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/themes/default.css" rel="stylesheet">
+    <link href="/static/html/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/html/themes/default.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/html/font-awesome/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/html/style.css" rel="stylesheet">
 
 </head>
 

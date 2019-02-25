@@ -13,7 +13,7 @@ $user = $this->get("user");
 
                 <div class="form-group">
                     <label for="first_name" class="">First Name</label>
-                    <input type="text" class="" id="first_name" name="first_name" value="<?=$user->get('first_name')?>" required="" title="Please enter your first name" placeholder="">
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?=$user->get('first_name')?>" required="" title="Please enter your first name" placeholder="">
 
                 </div>
                 <div class="form-group">
@@ -36,6 +36,7 @@ $user = $this->get("user");
 
 
                 <button type="submit" class="btn">Save Changes</button>
+                <a class="btn btn-info" href="/user_list">Done</a>
             </form>
 
             </div>

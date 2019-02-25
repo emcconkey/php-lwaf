@@ -9,13 +9,13 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="" href="/">
-                <img src="/static/img/logo.png" style="width: auto; height: 50px;">
+                <img src="/static/html/img/logo.png" style="width: auto; height: 50px;">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Menu</a></li>
+                <li><a href="/general_settings">Settings</a></li>
+                <li><a href="/user_list">Users</a></li>
                 <li><a href="#">Menu</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

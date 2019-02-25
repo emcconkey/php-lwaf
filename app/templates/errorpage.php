@@ -59,7 +59,7 @@
             -moz-border-radius: 4px;
             -webkit-border-radius: 4px;
             border-radius: 4px;
-            background: #fff url(/static/img/block.gif) no-repeat 0 51px;
+            background: #fff url(/static/html/img/block.gif) no-repeat 0 51px;
         }
         #block_error div{
             padding: 100px 40px 0 186px;

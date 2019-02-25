@@ -10,6 +10,7 @@ class login extends page {
 
         if(isset($args[0])) {
             if($args[0] == "forgot") {
+                $this->set("page_title", "Forgot Password");
                 $this->render("lo-header");
                 $this->render("login_top");
                 $this->render("forgot");
@@ -20,6 +21,7 @@ class login extends page {
 
             if($args[0] == "register") {
 
+                $this->set("page_title", "Register New Account");
                 $this->render("lo-header");
                 $this->render("login_top");
                 $this->render("register");
@@ -30,6 +32,7 @@ class login extends page {
 
             if($args[0] == "reset") {
 
+                $this->set("page_title", "Password Reset");
                 $token = database::sql()->load_object("reset_token", "token", $args[1]);
 
                 if(!$token || !$token->is_valid()) {
@@ -43,6 +46,7 @@ class login extends page {
                     return;
                 }
 
+                $this->set("page_title", "Login");
                 $this->render("lo-header");
                 $this->render("login_top");
                 $this->render("reset");

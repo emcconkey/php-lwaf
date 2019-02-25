@@ -1,4 +1,4 @@
-<img style="width: 100%" src="/static/img/logo.png">
+<img style="width: 100%" src="/static/html/img/logo.png">
 <div><?=html::get_page_messages()?></div>
 <h2 class="form-signin-heading">Log In</h2>
 <?=html::input_bare("forgot-email","Email Address", "", "email", "Email Address")?>

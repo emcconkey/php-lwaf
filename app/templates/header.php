@@ -11,42 +11,42 @@
     <title><?=$this->get("page_title")?></title>
 
 
-    <link rel="stylesheet" type="text/css" href="/static/datatables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/html/datatables/datatables.min.css">
 
     <!-- Bootstrap core CSS -->
     <? if(user::current()->loaded()) { ?>
         <?=user::current()->get_theme_css()?>
     <? } else { ?>
-        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/html/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <? } ?>
 
-    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/html/font-awesome/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/html/style.css" rel="stylesheet">
 
-    <script src="/static/jquery.min.js"></script>
+    <script src="/static/html/jquery.min.js"></script>
 
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/html/bootstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" charset="utf8" src="/static/datatables/datatables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="/static/html/datatables/datatables.min.js"></script>
 
-    <script src="/static/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="/static/sweetalert2.min.css">
+    <script src="/static/html/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/static/html/sweetalert2.min.css">
 
-    <script src="/static/featherlight/release/featherlight.min.js"></script>
-    <link rel="stylesheet" href="/static/featherlight/release/featherlight.min.css">
+    <script src="/static/html/featherlight/release/featherlight.min.js"></script>
+    <link rel="stylesheet" href="/static/html/featherlight/release/featherlight.min.css">
 
-    <link rel="stylesheet" href="/static/pickadate/lib/themes/default.css">
-    <link rel="stylesheet" href="/static/pickadate/lib/themes/default.date.css">
-    <link rel="stylesheet" href="/static/pickadate/lib/themes/default.time.css">
+    <link rel="stylesheet" href="/static/html/pickadate/lib/themes/default.css">
+    <link rel="stylesheet" href="/static/html/pickadate/lib/themes/default.date.css">
+    <link rel="stylesheet" href="/static/html/pickadate/lib/themes/default.time.css">
 
-    <script src="/static/pickadate/lib/picker.js"></script>
-    <script src="/static/pickadate/lib/picker.date.js"></script>
-    <script src="/static/pickadate/lib/picker.time.js"></script>
-    <script src="/static/pickadate/lib/legacy.js"></script>
+    <script src="/static/html/pickadate/lib/picker.js"></script>
+    <script src="/static/html/pickadate/lib/picker.date.js"></script>
+    <script src="/static/html/pickadate/lib/picker.time.js"></script>
+    <script src="/static/html/pickadate/lib/legacy.js"></script>
 
-    <script src="/static/script.js"></script>
+    <script src="/static/html/script.js"></script>
 
     <?=$this->get("extra_head")?>
 

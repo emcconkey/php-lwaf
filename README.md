@@ -9,9 +9,13 @@ _Currently this is a work in progress, this message will change when I believe i
 
 2. Set the document root of the webserver to be the public/ folder and check the included sample_htaccess.txt for an apache .htaccess file that you can use. If you are using another webserver, make sure to rewrite all requests to public/index.php.
 
-3. Copy the contents of the public/static/sample/ folder to public/static. That will set up your CSS and Javascript files that are required. Doing this will prevent the files from being overwritten in case you update the application framework.
+3. Copy the contents of the public/static/sample/ folder to usr/html/.
+    a. Link the usr/html/ to public/static/html/ (example: ln -s usr/html/ public/static/html/)
+    
+    This will set up your CSS and Javascript files that are required. Doing this will prevent the files from being overwritten in case you update the application framework.
 
 4. Edit scripts/db_structure.php to change the default username and password for the database.
+    a. Make sure you change all instances of the user php-lwaf, search for it as it may not be immediately apparent where all the instances are
 
 5. Run the db_structure.sql and sample_users.sql to set up the database and the sample users so you can begin using the system.
 
