@@ -429,8 +429,9 @@ class html
      * @param $db_column
      * @param string $default
      * @param string $dropdown_parent
+     * @param $db_column_display
      */
-    static function db_select($name, $title, $db_table, $db_column, $default="", $dropdown_parent=false) {
+    static function db_select($name, $title, $db_table, $db_column, $default="", $dropdown_parent=false, $db_column_display=false) {
         $values = database::sql()->query("select * from $db_table");
         $class = "db-select-{$name}";
         ?>
@@ -440,7 +441,12 @@ class html
                 <option></option>
                 <?
                 foreach($values as $v) {
-                    ?><option value="<?=$v[$db_table . '_id']?>" <?=($v[$db_table . '_id'] == $default ? "selected" : "")?>><?=$v[$db_column]?></option><?
+                    if($db_column_display) {
+                        $value = $v[$db_column_display];
+                    } else {
+                        $value = $v[$db_column];
+                    }
+                    ?><option value="<?=$v[$db_table . '_id']?>" <?=($v[$db_table . '_id'] == $default ? "selected" : "")?>><?=$value?></option><?
                 }
                 ?>
             </select>
