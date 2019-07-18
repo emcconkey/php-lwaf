@@ -520,6 +520,29 @@ class html
         <?
     }
 
+    static function yesno($name, $title, $default, $dropdown_parent = false, $bare = false) {
+        html::select($name, $title, [ "yes" => "Yes", "no" => "No"], $default, $dropdown_parent, $bare);
+    }
+
+    static function codebox($name, $title, $default, $type="php") {
+        ?>
+        <div class="form-group">
+            <label class="control-label"><?=$title?></label>
+            <textarea style="display:none;" name="<?=$name?>" id="<?=$name?>"></textarea>
+            <textarea class="<?=$name?>_code" id="<?=$name?>_code" name="<?=$name?>_code"><?=$default?></textarea>
+            <script>
+                $(function() {
+                    <?=$name?>_editor = ace.edit("<?=$name?>_code");
+                    <?=$name?>_editor.setTheme("ace/theme/clouds");
+                    <?=$name?>_editor.getSession().setMode({path:"ace/mode/<?=$type?>", inline:true});
+                    $("form").on("submit", function() {
+                        $('#<?=$name?>').val(<?=$name?>_editor.getValue());
+                    });
+                });
+            </script>
+        </div>
+        <?
+    }
 
 
     /**
