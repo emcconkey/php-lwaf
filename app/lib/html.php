@@ -79,7 +79,7 @@ class html
     static function get_page_messages() {
         if(isset($_SESSION["error_message"])) {
             ?>
-            <div class="alert alert-danger fade in">
+            <div class="alert alert-danger fade show">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <?=($_SESSION["error_message"])?>
             </div>
@@ -88,7 +88,7 @@ class html
         }
         if(isset($_SESSION["warning_message"])) {
             ?>
-            <div class="alert alert-warning fade in">
+            <div class="alert alert-warning fade show">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <?=($_SESSION["warning_message"])?>
             </div>
@@ -97,7 +97,7 @@ class html
         }
         if(isset($_SESSION["info_message"])) {
             ?>
-            <div class="alert alert-info fade in">
+            <div class="alert alert-info fade show">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <?=($_SESSION["info_message"])?>
             </div>
@@ -106,7 +106,7 @@ class html
         }
         if(isset($_SESSION["success_message"])) {
             ?>
-            <div class="alert alert-success fade in">
+            <div class="alert alert-success fade show">
                 <a href="#" class="close" data-dismiss="alert">&times;</a>
                 <?=($_SESSION["success_message"])?>
             </div>
