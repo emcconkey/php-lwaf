@@ -51,5 +51,9 @@
             });
             return false;
         });
+        $(document).on("click", ".delete", function() {
+            url = $(this).parent().parent().data("delete-url");
+            console.log(
+        });
     });
 </script>
